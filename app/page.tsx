@@ -438,9 +438,9 @@ function Services({ t, lang }: { t: T; lang: Lang }) {
 function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
-    { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],                    link: "https://napo-three.vercel.app" },
-    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],             link: "https://stock-pulse.xyz" },
-    { name: "Apex Consulting",category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","Sanity","TypeScript"],      link: "" },
+    { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
+    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://stock-pulse.xyz",        preview: "/stockpulse-preview.png" },
+    { name: "Apex Consulting",category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","Sanity","TypeScript"], link: "",                               preview: "" },
   ];
 
   return (
@@ -458,7 +458,7 @@ function Portfolio({ t }: { t: T }) {
               href={p.link || undefined}
               target={p.link ? "_blank" : undefined}
               rel={p.link ? "noopener noreferrer" : undefined}
-              className="rounded-2xl overflow-hidden card-hover block"
+              className="rounded-2xl overflow-hidden card-hover block group"
               style={{
                 background: "rgba(22,32,50,0.7)",
                 border: "1px solid rgba(30,41,59,0.8)",
@@ -470,23 +470,41 @@ function Portfolio({ t }: { t: T }) {
               }}
             >
               <div
-                className="h-44 relative overflow-hidden flex items-center justify-center"
+                className="h-44 relative overflow-hidden"
                 style={{ background: `linear-gradient(135deg, ${p.accent}15 0%, rgba(15,23,42,0.8) 100%)` }}
               >
-                {/* Browser chrome — always LTR */}
-                <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3" style={{ background: "rgba(0,0,0,0.3)", direction: "ltr" }}>
+                {/* Real screenshot */}
+                {p.preview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.preview}
+                    alt={p.name}
+                    style={{
+                      position: "absolute", inset: 0,
+                      width: "100%", height: "100%",
+                      objectFit: "cover", objectPosition: "top",
+                      transition: "transform 0.5s ease",
+                    }}
+                    className="group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="mt-6 w-4/5 space-y-2">
+                      <div className="h-3 rounded-full" style={{ background: `${p.accent}40`, width: "60%" }} />
+                      <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)", width: "80%" }} />
+                      <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)", width: "65%" }} />
+                      <div className="h-7 rounded-lg mt-3 w-24" style={{ background: `${p.accent}50` }} />
+                    </div>
+                  </div>
+                )}
+                {/* Browser chrome — always LTR, floats above screenshot */}
+                <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3 z-10" style={{ background: "rgba(0,0,0,0.55)", direction: "ltr", backdropFilter: "blur(2px)" }}>
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                  <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#475569", fontSize: "9px" }}>
-                    zhstudio.co/{p.name.toLowerCase().replace(" ", "-")}
+                  <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
+                    {p.link.replace("https://", "") || `zhstudio.co/${p.name.toLowerCase().replace(" ", "-")}`}
                   </span>
-                </div>
-                <div className="mt-6 w-4/5 space-y-2">
-                  <div className="h-3 rounded-full" style={{ background: `${p.accent}40`, width: "60%" }} />
-                  <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)", width: "80%" }} />
-                  <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)", width: "65%" }} />
-                  <div className="h-7 rounded-lg mt-3 w-24" style={{ background: `${p.accent}50` }} />
                 </div>
               </div>
 
