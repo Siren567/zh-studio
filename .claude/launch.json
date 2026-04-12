@@ -4,7 +4,7 @@
     {
       "name": "zh-studio",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "zh-studio"],
+      "runtimeArgs": ["run", "dev"],
       "port": 3002
     }
   ]

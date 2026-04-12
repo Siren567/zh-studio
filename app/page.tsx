@@ -59,9 +59,10 @@ const translations = {
     portfolioTag: "Our Work",
     portfolioTitle: "Recent Projects",
     proj1Category: "Landing Page",
-    proj1Desc: "A sleek fintech landing page with animated hero and conversion-optimized layout.",
-    proj2Category: "Shopify Store",
-    proj2Desc: "Modern e-commerce store for an organic food brand with custom theme and product pages.",
+    proj1Desc: "Premium landing page for a Haifa-based barber with personal branding, work gallery, and WhatsApp conversion.",
+    proj2Category: "Web App / Finance",
+    proj2Desc: "Stock analysis platform with smart tools for scanning, tracking, and real-time market analysis.",
+    viewProjectBtn: "View Project",
     proj3Category: "Business Website",
     proj3Desc: "Corporate multi-page site for a B2B consultancy with CMS integration and lead capture.",
 
@@ -151,9 +152,10 @@ const translations = {
     portfolioTag: "העבודות שלנו",
     portfolioTitle: "פרויקטים אחרונים",
     proj1Category: "דף נחיתה",
-    proj1Desc: "דף נחיתה חלק לחברת פינטק עם אנימציית הירו ועיצוב ממיר.",
-    proj2Category: "חנות Shopify",
-    proj2Desc: "חנות אי-קומרס מודרנית למותג מזון אורגני עם ערכת נושא ודפי מוצר מותאמים.",
+    proj1Desc: "דף נחיתה פרימיום לספר מחיפה עם דגש על מיתוג אישי, גלריית עבודות והמרה לוואטסאפ.",
+    proj2Category: "Web App / פיננסים",
+    proj2Desc: "פלטפורמת ניתוח מניות עם כלים חכמים לסריקה, מעקב וניתוח שוק בזמן אמת.",
+    viewProjectBtn: "לצפייה בפרויקט",
     proj3Category: "אתר עסק",
     proj3Desc: "אתר רב-עמודים לחברת ייעוץ B2B עם אינטגרציית CMS וכלי לכידת לידים.",
 
@@ -436,9 +438,9 @@ function Services({ t, lang }: { t: T; lang: Lang }) {
 function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
-    { name: "Nova Finance",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["React","Tailwind","Framer"],          metrics: "+42% CVR" },
-    { name: "Verde Market",   category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Shopify","Liquid","Custom CSS"],      metrics: "+3.8x ROAS" },
-    { name: "Apex Consulting",category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","Sanity","TypeScript"],      metrics: "+120% Leads" },
+    { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],                    link: "https://napo-three.vercel.app" },
+    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],             link: "https://stock-pulse.xyz" },
+    { name: "Apex Consulting",category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","Sanity","TypeScript"],      link: "" },
   ];
 
   return (
@@ -451,15 +453,20 @@ function Portfolio({ t }: { t: T }) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <div
+            <a
               key={p.name}
-              className="rounded-2xl overflow-hidden card-hover"
+              href={p.link || undefined}
+              target={p.link ? "_blank" : undefined}
+              rel={p.link ? "noopener noreferrer" : undefined}
+              className="rounded-2xl overflow-hidden card-hover block"
               style={{
                 background: "rgba(22,32,50,0.7)",
                 border: "1px solid rgba(30,41,59,0.8)",
                 transition: `all 0.7s ease ${i * 120}ms`,
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(24px)",
+                textDecoration: "none",
+                cursor: p.link ? "pointer" : "default",
               }}
             >
               <div
@@ -481,19 +488,13 @@ function Portfolio({ t }: { t: T }) {
                   <div className="h-2 rounded-full" style={{ background: "rgba(255,255,255,0.06)", width: "65%" }} />
                   <div className="h-7 rounded-lg mt-3 w-24" style={{ background: `${p.accent}50` }} />
                 </div>
-                <div
-                  className="absolute top-10 end-4 text-xs font-bold px-2.5 py-1 rounded-full"
-                  style={{ background: `${p.accent}25`, color: p.accent, border: `1px solid ${p.accent}40` }}
-                >
-                  {p.metrics}
-                </div>
               </div>
 
               <div className="p-6">
                 <p className="text-xs font-medium uppercase tracking-wider mb-1" style={{ color: p.accent }}>{p.category}</p>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: "#f1f5f9" }}>{p.name}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "#64748b" }}>{p.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {p.tags.map((tag) => (
                     <span key={tag} className="text-xs px-2.5 py-1 rounded-md font-medium"
                       style={{ background: "rgba(59,130,246,0.08)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.15)" }}>
@@ -501,8 +502,16 @@ function Portfolio({ t }: { t: T }) {
                     </span>
                   ))}
                 </div>
+                {p.link && (
+                  <span
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-lg"
+                    style={{ background: `${p.accent}18`, color: p.accent, border: `1px solid ${p.accent}35` }}
+                  >
+                    {t.viewProjectBtn}
+                  </span>
+                )}
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
