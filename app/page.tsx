@@ -58,8 +58,8 @@ const translations = {
 
     portfolioTag: "Our Work",
     portfolioTitle: "Recent Projects",
-    proj1Category: "Landing Page",
-    proj1Desc: "Premium landing page for a Haifa-based barber with personal branding, work gallery, and WhatsApp conversion.",
+    proj1Category: "Landing Page / Private Chef",
+    proj1Desc: "Luxury landing page for a private chef with personal branding, clean user experience, and strong WhatsApp conversion focus.",
     proj2Category: "Web App / Finance",
     proj2Desc: "Stock analysis platform with smart tools for scanning, tracking, and real-time market analysis.",
     viewProjectBtn: "View Project",
@@ -151,8 +151,8 @@ const translations = {
 
     portfolioTag: "העבודות שלנו",
     portfolioTitle: "פרויקטים אחרונים",
-    proj1Category: "דף נחיתה",
-    proj1Desc: "דף נחיתה פרימיום לספר מחיפה עם דגש על מיתוג אישי, גלריית עבודות והמרה לוואטסאפ.",
+    proj1Category: "דף נחיתה / שף פרטי",
+    proj1Desc: "דף נחיתה יוקרתי לשף פרטי, עם מיתוג אישי, חוויית משתמש נקייה ומיקוד בהמרה לוואטסאפ.",
     proj2Category: "Web App / פיננסים",
     proj2Desc: "פלטפורמת ניתוח מניות עם כלים חכמים לסריקה, מעקב וניתוח שוק בזמן אמת.",
     viewProjectBtn: "לצפייה בפרויקט",
@@ -438,7 +438,7 @@ function Services({ t, lang }: { t: T; lang: Lang }) {
 function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
-    { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
+    { name: "Chef Itay",      category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
     { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://stock-pulse.xyz",        preview: "/stockpulse-preview.png" },
     { name: "Apex Consulting",category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","Sanity","TypeScript"], link: "",                               preview: "" },
   ];
