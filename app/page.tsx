@@ -226,7 +226,7 @@ function Logo() {
   return (
     <div className="flex items-center">
       <span className="font-mono font-bold text-xl tracking-tight" style={{ color: "#94a3b8" }}>
-        {"<"}<span style={{ color: "#3b82f6" }}>ZH</span>{">"}
+        {"<"}<span style={{ color: "#3b82f6" }}>s.g digital</span>{">"}
       </span>
     </div>
   );
@@ -439,7 +439,7 @@ function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://stock-pulse.xyz",        preview: "/stockpulse-preview.png" },
+    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",        preview: "/stockpulse-preview.png" },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -503,7 +503,7 @@ function Portfolio({ t }: { t: T }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
                   <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
-                    {p.link.replace("https://", "") || `zhstudio.co/${p.name.toLowerCase().replace(" ", "-")}`}
+                    {p.link.replace("https://", "") || `sgdigital.co/${p.name.toLowerCase().replace(" ", "-")}`}
                   </span>
                 </div>
               </div>
@@ -725,7 +725,7 @@ function Footer({ t }: { t: T }) {
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-3">
         <Logo />
         <p className="text-sm" style={{ color: "#475569" }}>
-          © {new Date().getFullYear()} ZH Studio. {t.footerRights}
+          © {new Date().getFullYear()} s.g digital. {t.footerRights}
         </p>
       </div>
     </footer>

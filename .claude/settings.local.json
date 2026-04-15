@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest zh-studio --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npx tsc:*)",
+      "Bash(npx --yes puppeteer --version)",
+      "Bash(node -e ':*)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --screenshot=\"/Users/galzh/Desktop/zh studio/public/napo-preview.png\" --window-size=1280,800 --virtual-time-budget=5000 --hide-scrollbars \"https://napo-three.vercel.app\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --screenshot=\"/Users/galzh/Desktop/zh studio/public/stockpulse-preview.png\" --window-size=1280,800 --virtual-time-budget=5000 --hide-scrollbars \"https://stock-pulse.xyz\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --screenshot=\"/Users/galzh/Desktop/zh studio/public/stockpulse-preview.png\" --window-size=1280,800 --virtual-time-budget=10000 --hide-scrollbars --disable-gpu \"https://stock-pulse.xyz\")",
+      "Bash(npm list:*)",
+      "Bash(node /tmp/node_modules/.bin/puppeteer --version)",
+      "Bash(node -e \"const p = require\\('/tmp/node_modules/puppeteer'\\); console.log\\('ok', p.executablePath\\(\\)\\)\")"
+    ]
+  }
+}

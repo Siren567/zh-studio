@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZH Studio — We Build Websites That Actually Convert",
+  title: "s.g digital — We Build Websites That Actually Convert",
   description: "Custom landing pages and websites designed to bring you more clients. Fast delivery, clean code, mobile optimized.",
 };
 
