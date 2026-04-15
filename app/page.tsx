@@ -440,9 +440,17 @@ function Services({ t, lang }: { t: T; lang: Lang }) {
 
 function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
+  const getShortLink = (url: string) => {
+    try {
+      const host = new URL(url).hostname.replace(/^www\./, "");
+      return host.length > 22 ? `${host.slice(0, 22)}...` : host;
+    } catch {
+      return "sgdigital.co";
+    }
+  };
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", previewPosition: "center 30%", showBrowserChrome: false },
+    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", previewPosition: "center 30%" },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -500,17 +508,15 @@ function Portfolio({ t }: { t: T }) {
                     </div>
                   </div>
                 )}
-                {/* Browser chrome — shown only when preview doesn't already contain it */}
-                {p.showBrowserChrome !== false && (
-                  <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3 z-10" style={{ background: "rgba(0,0,0,0.55)", direction: "ltr", backdropFilter: "blur(2px)" }}>
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                    <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
-                      {p.link.replace("https://", "") || `sgdigital.co/${p.name.toLowerCase().replace(" ", "-")}`}
-                    </span>
-                  </div>
-                )}
+                {/* Browser chrome */}
+                <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3 z-10" style={{ background: "rgba(0,0,0,0.55)", direction: "ltr", backdropFilter: "blur(2px)" }}>
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                  <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
+                    {getShortLink(p.link)}
+                  </span>
+                </div>
               </div>
 
               <div className="p-6 flex flex-col flex-1">
