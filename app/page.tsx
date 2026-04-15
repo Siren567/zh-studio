@@ -224,9 +224,12 @@ function useInView(threshold = 0.15) {
 
 function Logo() {
   return (
-    <div className="flex items-center">
-      <span className="font-mono font-bold text-xl tracking-tight" style={{ color: "#94a3b8" }}>
-        {"<"}<span style={{ color: "#3b82f6" }}>s.g digital</span>{">"}
+    <div className="flex items-baseline gap-2">
+      <span className="font-bold text-xl tracking-[0.18em] uppercase" style={{ color: "#3b82f6" }}>
+        S.G
+      </span>
+      <span className="font-semibold text-base tracking-[0.08em] uppercase" style={{ color: "#cbd5e1" }}>
+        Digital
       </span>
     </div>
   );
@@ -439,7 +442,7 @@ function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",        preview: "/stockpulse-preview.png" },
+    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",        preview: "/harot-li-preview.png" },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -725,7 +728,7 @@ function Footer({ t }: { t: T }) {
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-3">
         <Logo />
         <p className="text-sm" style={{ color: "#475569" }}>
-          © {new Date().getFullYear()} s.g digital. {t.footerRights}
+          © {new Date().getFullYear()} S.G Digital. {t.footerRights}
         </p>
       </div>
     </footer>
