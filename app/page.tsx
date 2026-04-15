@@ -442,7 +442,7 @@ function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", showBrowserChrome: false },
+    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", showBrowserChrome: false },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -602,11 +602,21 @@ function Contact({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const [form, setForm] = useState({ name: "", phone: "", details: "" });
   const [modalOpen, setModalOpen] = useState(false);
+  const whatsappTarget = "972523838630";
 
   const emptyForm = { name: "", phone: "", details: "" };
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const message = [
+      "היי, הגעתי מהאתר.",
+      `${t.formMsgName}: ${form.name}`,
+      `${t.formMsgPhone}: ${form.phone}`,
+      `${t.formMsgDetails}: ${form.details || "-"}`,
+    ].join("\n");
+    const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setForm(emptyForm);
     setModalOpen(true);
   }
