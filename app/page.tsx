@@ -442,7 +442,7 @@ function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", showBrowserChrome: false },
+    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", previewPosition: "center 30%", showBrowserChrome: false },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -485,7 +485,7 @@ function Portfolio({ t }: { t: T }) {
                     style={{
                       position: "absolute", inset: 0,
                       width: "100%", height: "100%",
-                      objectFit: "cover", objectPosition: "top",
+                      objectFit: "cover", objectPosition: p.previewPosition || "top",
                       transition: "transform 0.5s ease",
                     }}
                     className="group-hover:scale-105"
