@@ -224,7 +224,7 @@ function useInView(threshold = 0.15) {
 
 function Logo() {
   return (
-    <div className="flex items-baseline gap-2">
+    <div dir="ltr" className="flex flex-row items-baseline gap-2">
       <span className="font-bold text-xl tracking-[0.18em] uppercase" style={{ color: "#3b82f6" }}>
         S.G
       </span>
@@ -442,7 +442,7 @@ function Portfolio({ t }: { t: T }) {
   const { ref, visible } = useInView();
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
-    { name: "Stock Pulse",    category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",        preview: "/harot-li-preview.png" },
+    { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","AI"],        link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", showBrowserChrome: false },
     { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
   ];
 
@@ -500,15 +500,17 @@ function Portfolio({ t }: { t: T }) {
                     </div>
                   </div>
                 )}
-                {/* Browser chrome — always LTR, floats above screenshot */}
-                <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3 z-10" style={{ background: "rgba(0,0,0,0.55)", direction: "ltr", backdropFilter: "blur(2px)" }}>
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                  <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
-                    {p.link.replace("https://", "") || `sgdigital.co/${p.name.toLowerCase().replace(" ", "-")}`}
-                  </span>
-                </div>
+                {/* Browser chrome — shown only when preview doesn't already contain it */}
+                {p.showBrowserChrome !== false && (
+                  <div className="absolute top-0 left-0 right-0 h-8 flex items-center gap-1.5 px-3 z-10" style={{ background: "rgba(0,0,0,0.55)", direction: "ltr", backdropFilter: "blur(2px)" }}>
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                    <span className="ms-2 px-6 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", fontSize: "9px" }}>
+                      {p.link.replace("https://", "") || `sgdigital.co/${p.name.toLowerCase().replace(" ", "-")}`}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="p-6">
