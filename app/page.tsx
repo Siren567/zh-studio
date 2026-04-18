@@ -60,11 +60,11 @@ const translations = {
     portfolioTitle: "Recent Projects",
     proj1Category: "Landing Page",
     proj1Desc: "Premium landing page for a Haifa-based barber with personal branding, work gallery, and WhatsApp conversion.",
-    proj2Category: "Web App / Finance",
-    proj2Desc: "Stock analysis platform with smart tools for scanning, tracking, and real-time market analysis.",
+    proj2Category: "E-commerce / Jewelry",
+    proj2Desc: "Online jewelry store focused on personal engraving — turning pieces into meaningful gifts with a polished, conversion-friendly storefront.",
     viewProjectBtn: "View Project",
-    proj3Category: "Landing Page / Private Chef",
-    proj3Desc: "Luxury landing page for a private chef with personal branding, clean user experience, and strong WhatsApp conversion focus.",
+    proj3Category: "Web App / Finance",
+    proj3Desc: "AI-assisted stock scanner for faster idea generation — screening, watchlists, and market context in one focused web experience.",
 
     processTag: "How It Works",
     processTitle: "Our Process",
@@ -153,11 +153,11 @@ const translations = {
     portfolioTitle: "פרויקטים אחרונים",
     proj1Category: "דף נחיתה",
     proj1Desc: "דף נחיתה פרימיום לספר מחיפה עם דגש על מיתוג אישי, גלריית עבודות והמרה לוואטסאפ.",
-    proj2Category: "Web App / פיננסים",
-    proj2Desc: "פלטפורמת ניתוח מניות עם כלים חכמים לסריקה, מעקב וניתוח שוק בזמן אמת.",
+    proj2Category: "חנות אונליין / תכשיטים",
+    proj2Desc: "חנות תכשיטים עם חריטה אישית — חוויית קנייה נקייה שמדגישה מתנות בעלות משמעות ומותאמות אישית.",
     viewProjectBtn: "לצפייה בפרויקט",
-    proj3Category: "דף נחיתה / שף פרטי",
-    proj3Desc: "דף נחיתה יוקרתי לשף פרטי, עם מיתוג אישי, חוויית משתמש נקייה ומיקוד בהמרה לוואטסאפ.",
+    proj3Category: "Web App / פיננסים",
+    proj3Desc: "סורק מניות מבוסס בינה מלאכותית — סריקה מהירה, מעקב ורעיונות השקעה בממשק אחד ממוקד.",
 
     processTag: "איך זה עובד?",
     processTitle: "התהליך שלנו",
@@ -451,7 +451,7 @@ function Portfolio({ t }: { t: T }) {
   const projects = [
     { name: "NAPO Barber",    category: t.proj1Category, desc: t.proj1Desc, accent: "#3b82f6", tags: ["HTML","CSS","UI"],               link: "https://napo-three.vercel.app",  preview: "/napo-preview.png" },
     { name: "Harot Li",       category: t.proj2Category, desc: t.proj2Desc, accent: "#10b981", tags: ["Next.js","Supabase","חנות אונליין"], link: "https://www.harot-li.store/",   preview: "/harot-li-preview.png", previewPosition: "center 30%" },
-    { name: "Chef Itay",      category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["HTML","CSS","UI/UX"],            link: "https://chefitay-4flff7msp-galzohar4466-6318s-projects.vercel.app/", preview: "/chef-itay-preview.png" },
+    { name: "StockPulse",     category: t.proj3Category, desc: t.proj3Desc, accent: "#8b5cf6", tags: ["Next.js","AI","פיננסים"],       link: "https://stockkpulse.vercel.app/", preview: "/stockpulse-preview.png" },
   ];
 
   return (
